@@ -22,6 +22,12 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+      
+    - name: Exclude files and directories specified in .gitignore
+    run: |
+      while IFS= read -r entry; do
+        find . -name "$entry" -exec rm -r {} +
+      done < .gitignore
 
     - name: Set up Python
       uses: actions/setup-python@v2
