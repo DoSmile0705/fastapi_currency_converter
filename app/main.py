@@ -41,7 +41,7 @@ async def update_exchange_rates(db: Session = Depends(get_db)):
 @app.get("/last_update")
 async def last_update(db: Session = Depends(get_db)):
     last_update_time = crud.get_last_update(db)
-    return {"last_update_time": last_update_time}
+    return {last_update_time}
 
 
 # Endpoint to convert currency based on user input
