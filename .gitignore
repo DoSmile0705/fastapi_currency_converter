@@ -117,3 +117,6 @@ __pycache__/
 # pipenv
 Pipfile.lock
 Pipfile
+
+# node_modules
+node_modules/
