@@ -21,7 +21,7 @@
       font-family: monospace;
     }
 
-    pre {
+    pre.para {
       background-color: #f4f4f4;
       padding: 10px;
       border: 1px solid #ccc;
@@ -35,16 +35,14 @@
   <h1>Instructions for Installing and Running the Project</h1>
 
   <h2>1. Clone the Repository:</h2>
-  <pre><code>git clone https://github.com/yourusername/currency_converter_api.git</code></pre>
+  <pre><code>git clone https://github.com/DoSmile0705/fastapi_currency_converter.git</code></pre>
 
   <h2>2. Navigate to the Project Directory:</h2>
-  <pre><code>cd currency_converter_api</code></pre>
+  <pre><code>cd fastapi_currency_converter</code></pre>
 
   <h2>3. Build and Run the Project:</h2>
   <pre><code>docker-compose -f docker-compose.yml up --build -d</code></pre>
-
-  <h2>4. Apply Migrations:</h2>
-  <pre><code>docker-compose -f docker-compose.yml exec app alembic upgrade head</code></pre>
+  <p><pre>*Migration was defined in the Dockerfile.</pre></p>
 
   <p>This step ensures that the database is initialized with the necessary tables and data.</p>
 
