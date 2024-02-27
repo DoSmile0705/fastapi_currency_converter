@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter API Usage Examples</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Currency Converter API Usage Examples</h1>
+
+  <h2>1. Update Exchange Rates</h2>
+  <p><strong>Endpoint:</strong> /update_exchange_rates</p>
+  <p><strong>HTTP Method:</strong> GET</p>
+  <pre><code class="bash">curl -X POST "http://localhost:8000/update_exchange_rates"</code></pre>
+  <p>This will trigger an update of the exchange rates in the database.</p>
+
+  <h2>2. Get Last Update Time</h2>
+  <p><strong>Endpoint:</strong> /last_update</p>
+  <p><strong>HTTP Method:</strong> GET</p>
+  <pre><code class="bash">curl -X GET "http://localhost:8000/last_update"</code></pre>
+  <p>This will return the date and time of the last update of rates in the database.</p>
+
+  <h2>3. Convert Currency</h2>
+  <p><strong>Endpoint:</strong> /convert</p>
+  <p><strong>HTTP Method:</strong> POST</p>
+  <pre><code class="bash">curl -X POST "http://localhost:8000/convert" -H "accept: application/json" -H "Content-Type: application/json" -d '{"source": "USD", "target": "EUR", "amount": 100.0}'</code></pre>
+  <p>This will convert 100 USD to EUR based on the current exchange rates.</p>
+
+  <h2>Notes:</h2>
+  <ul>
+    <li>Ensure that Docker and Docker Compose are installed on your system.</li>
+    <li>If there are API keys required for external services, make sure to include them in the requests.</li>
+  </ul>
+</body>
+
+</html>

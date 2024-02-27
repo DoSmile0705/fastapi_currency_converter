@@ -1,0 +1,13 @@
+[flake8]
+count = true
+max-line-length = 120
+max-complexity = 30
+max-cognitive-complexity = 55
+max-expression-complexity = 7
+exclude = .git
+        __pycache__
+        .idea
+        migrations
+        nox.py
+
+ignore = W503, B011, SIM102, SIM106, SIM111, SIM118, I, JS101, JS102, C408, T002, T003, E203, A003, B008
