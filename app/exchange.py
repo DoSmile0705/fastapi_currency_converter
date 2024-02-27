@@ -11,7 +11,7 @@ url = os.getenv("CURRENCY_BASE_URL")
 
 apikey = os.getenv("API_KEY")
 
-request = url + "?apikey=" + apikey
+request = f"{url}?apikey={apikey}"
 
 
 def update_exchange_rates(db: Session):
