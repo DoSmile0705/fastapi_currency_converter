@@ -2,17 +2,21 @@ from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from app import crud, models
 import httpx
+import os
+from dotenv import load_dotenv
 
-url = "https://api.currencyapi.com/v3/latest"
-headers = {
-    'apikey': "cur_live_V7mTQy7pPdfIuUpqFOFEkXh7GkwKlE2svf2MvOZc"
-}
-apikey = "cur_live_V7mTQy7pPdfIuUpqFOFEkXh7GkwKlE2svf2MvOZc"
+load_dotenv()
+
+url = os.getenv("CURRENCY_BASE_URL")
+
+apikey = os.getenv("API_KEY")
+
+request = url + "?apikey=" + apikey
 
 
 def update_exchange_rates(db: Session):
     # Call external API to get exchange rates
-    response = httpx.get("https://api.currencyapi.com/v3/latest?apikey=" + apikey)
+    response = httpx.get(request)
     print(response)
     data = response.json()
     if response.status_code != 200 or "data" not in data:

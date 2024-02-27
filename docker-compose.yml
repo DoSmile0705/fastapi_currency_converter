@@ -1,18 +1,23 @@
 version: '3.8'
 
 services:
+  # Service for the FastAPI application
   app:
+    container_name: ${APP_CONTAINER_NAME}
     build:
-      context: .
+      context: .  # Build the Docker image from the current directory
     ports:
-      - "8000:8000"
+      - ${API__STARTUP__PORT}:${API__STARTUP__PORT}  # Map port 8000 on the host to port 8000 in the container
     depends_on:
-      - db
+      - db  # Ensure that the 'db' service is started before 'app'
+
+  # Service for the PostgreSQL database
   db:
-    image: postgres:latest
+    container_name: ${POSTGRES_CONTAINER_NAME}
+    image: postgres:latest  # Use the latest version of the PostgreSQL image from Docker Hub
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: tjdrhd
+      POSTGRES_DB: ${POSTGRES_DB}  # Set the name of the default database
+      POSTGRES_USER: ${POSTGRES_USER}  # Set the username for the PostgreSQL user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}  # Set the password for the PostgreSQL user
     ports:
-      - "5432:5432"
+      - ${POSTGRES_port}:5432  # Map port 5432 on the host to port 5432 in the container
